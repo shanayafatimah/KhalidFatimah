@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Fatimah Khalid | Data Science Portfolio</title>
+<meta name="description" content="Portfolio of Fatimah Khalid, BS Data Science student and machine learning intern.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,800;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--deep:#24122a;--plum:#3b1f3a;--mauve:#7a5c86;--dusk:#9a84a6;--lilac:#d4c8dc;--mist:#e4dce8;--blush:#f3eef5;--glow:#c9a8e6;--serif:"Fraunces",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;overflow-x:hidden;background:var(--blush);color:#2f2033;font:400 1.05rem/1.7 var(--sans)}
+h1,h2,h3{font-family:var(--serif);margin:0;line-height:1.1}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--glow);outline-offset:3px}
+
+nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.3rem 1.4rem;padding:.8rem 5%;background:rgba(36,18,42,.94);color:var(--mist);border-bottom:1px solid rgba(201,168,230,.25)}
+nav b{font:800 1.15rem var(--serif);letter-spacing:.02em}
+nav div{display:flex;flex-wrap:wrap;gap:.2rem 1.3rem;font:500 .9rem var(--sans)}
+nav a{text-decoration:none;transition:color .2s}
+nav a:hover{color:var(--glow)}
+
+.hero{background:radial-gradient(circle at 78% 45%,#4b2a55,var(--deep) 62%);color:var(--mist);padding:4rem 5% 0;overflow:hidden}
+.hero-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:1.5rem;align-items:center}
+.hero small{display:block;font:500 1rem var(--sans);color:var(--dusk);margin-bottom:1rem}
+.hero h1{font-size:clamp(3rem,8.5vw,6rem);font-weight:800;color:#fff;letter-spacing:-.02em}
+.hero h1 span{display:block;color:var(--glow);font-style:italic;font-weight:600}
+.hero p.lead{max-width:46ch;margin:1.4rem 0 1.8rem;color:var(--lilac);font-size:1.15rem}
+.btn{display:inline-block;margin:.3rem .6rem .3rem 0;padding:.8rem 1.7rem;font:700 .95rem var(--sans);text-decoration:none;border-radius:6px;transition:transform .15s,box-shadow .15s;box-shadow:0 5px 0 rgba(0,0,0,.4)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 0 rgba(0,0,0,.4)}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 rgba(0,0,0,.4)}
+.btn.p{background:var(--glow);color:var(--deep)}
+.btn.g{background:transparent;color:var(--mist);border:1.5px solid var(--dusk);box-shadow:none}
+.btn.g:hover{box-shadow:none;border-color:var(--glow);color:var(--glow)}
+.viz{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center}
+.viz canvas{width:100%;height:100%;display:block;cursor:grab}
+.viz figcaption{position:absolute;left:0;bottom:2%;font:500 .8rem var(--sans);color:var(--dusk)}
+.viz{margin:0}
+.stats{max-width:1100px;margin:2rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));border-top:1px solid rgba(212,200,220,.2)}
+.stats div{padding:1.3rem 1rem;border-right:1px solid rgba(212,200,220,.2)}
+.stats div:last-child{border:0}
+.stats b{display:block;font:800 2.3rem var(--serif);color:var(--glow)}
+.stats span{font-size:.92rem;color:var(--dusk)}
+
+.page{max-width:1000px;margin:0 auto;padding:4.5rem 5%}
+.page h2{font-size:clamp(2rem,5.5vw,3.2rem);color:var(--plum);font-weight:800}
+.page h2::after{content:"";display:block;width:56px;height:4px;background:var(--mauve);margin:.8rem 0 0}
+.sub{max-width:58ch;margin:1rem 0 2rem;color:#5d4a66}
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:2.2rem;align-items:start;margin-top:2rem}
+.two p{margin:0 0 1rem}
+blockquote{margin:1.6rem 0 0;padding:1.2rem 1.5rem;background:var(--plum);color:#fff;font:italic 600 clamp(1.25rem,3vw,1.75rem)/1.3 var(--serif);border-left:6px solid var(--glow)}
+.card{background:#fff;border:1px solid var(--mist);border-top:4px solid var(--mauve);border-radius:4px;padding:1.4rem;box-shadow:0 10px 0 rgba(122,92,134,.12);transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s ease-out,box-shadow .25s}
+.card:hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(14px);box-shadow:0 16px 0 rgba(122,92,134,.2)}
+.card h3{font-size:1.3rem;color:var(--plum);margin-bottom:.4rem}
+.facts{list-style:none;margin:0;padding:0}
+.facts li{padding:.6rem 0;border-bottom:1px solid var(--mist)}
+.facts li:last-child{border:0}
+.facts b{display:block;font:700 .8rem var(--sans);color:var(--mauve)}
+
+.band{background:var(--plum);color:var(--mist)}
+.band h2{color:#fff}
+.band h2::after{background:var(--glow)}
+.band .sub{color:var(--lilac)}
+.tl{border-left:2px solid var(--mauve);margin:2rem 0 0 .5rem}
+.tl .e{position:relative;padding:0 0 2rem 1.8rem}
+.tl .e::before{content:"";position:absolute;left:-10px;top:.45rem;width:18px;height:18px;border-radius:50%;background:var(--glow);border:4px solid var(--plum)}
+.tl .when{font:700 .8rem var(--sans);color:var(--glow)}
+.tl h3{font-size:1.45rem;color:#fff;margin:.2rem 0}
+.tl .org{color:var(--lilac)}
+.tl ul{margin:.5rem 0 0;padding-left:1.1rem}
+
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.6rem}
+.tag{display:inline-block;font:700 .78rem var(--sans);color:#fff;background:var(--mauve);padding:.2rem .7rem;margin-bottom:.7rem;border-radius:3px}
+.row{margin:.6rem 0 0;font-size:.98rem}
+.row b{color:var(--mauve)}
+.chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:.9rem}
+.chip{font:700 .85rem var(--sans);padding:.3rem .85rem;border:1.5px solid var(--mauve);border-radius:999px;color:var(--plum);background:#fff;transition:.2s}
+.chip:hover{background:var(--mauve);color:#fff;transform:perspective(400px) rotateX(14deg) scale(1.06)}
+.chip em{font-style:normal;font-weight:500;opacity:.75}
+.skills .card{margin-top:0}
+
+.contact{background:var(--deep);color:var(--mist);text-align:center;padding:4.5rem 5%}
+.contact h2{color:#fff;font-size:clamp(2rem,6vw,3.3rem)}
+.contact p{max-width:46ch;margin:1rem auto 1.6rem;color:var(--lilac)}
+footer{background:#170a1c;color:var(--dusk);text-align:center;font:500 .85rem var(--sans);padding:1.3rem}
+#up{position:fixed;right:1rem;bottom:1rem;width:44px;height:44px;border-radius:50%;background:var(--glow);color:var(--deep);border:0;font:700 1.2rem var(--sans);text-decoration:none;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .3s}
+#up.on{opacity:1;pointer-events:auto}
+
+.reveal{opacity:0;transform:perspective(1000px) rotateX(12deg) translateY(36px);transform-origin:50% 100%;transition:opacity .8s,transform .8s}
+.reveal.show{opacity:1;transform:none}
+
+@media(max-width:800px){.hero-in{grid-template-columns:1fr}.two{grid-template-columns:1fr}.viz{max-width:380px}}
+@media(max-width:600px){nav b{width:100%}.hero{padding-top:2.5rem}.page{padding:3rem 5%}.btn{display:block;text-align:center;margin:.6rem 0}.stats div{border-right:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.card,.card:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <b>Fatimah Khalid</b>
+  <div><a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-in">
+    <div>
+      <small>BS Data Science student and machine learning intern</small>
+      <h1>Fatimah <span>Khalid</span></h1>
+      <p class="lead">I turn ideas into practical solutions: AI for safer roads, faster emergency care and shorter queues in Pakistan.</p>
+      <a class="btn p" href="#projects">View my projects</a>
+      <a class="btn g" href="#contact">Get in touch</a>
+    </div>
+    <figure class="viz">
+      <canvas id="cloud" aria-label="Rotating 3D scatter plot of three data clusters" role="img"></canvas>
+      <figcaption>Three clusters, one regression line. Move your mouse to rotate.</figcaption>
+    </figure>
+  </div>
+  <div class="stats">
+    <div><b>3</b><span>AI project ideas</span></div>
+    <div><b>1</b><span>ML internship</span></div>
+    <div><b>2</b><span>leadership roles</span></div>
+    <div><b>3rd</b><span>semester, BS Data Science</span></div>
+  </div>
+</header>
+
+<section class="page reveal" id="about">
+  <h2>About me</h2>
+  <div class="two">
+    <div>
+      <p>Hello! I am a 3rd semester BS Data Science student, getting deeper into the world of information technology and building new skills every semester. I turn my ideas into practical solutions.</p>
+      <p>My interests sit where data meets everyday life: using AI to make public systems faster, safer and easier to use. Outside the classroom, I have led a team as General Director and started a sports venture that people actually used.</p>
+      <p>Welcome to my portfolio, where I share my learning journey and some of my achievements.</p>
+      <blockquote>“I believe in working smarter.”</blockquote>
+    </div>
+    <div class="card">
+      <ul class="facts">
+        <li><b>Studying</b>BS Data Science</li>
+        <li><b>University</b>Pak-Austria Fachhochschule IAST</li>
+        <li><b>Now</b>Machine learning intern at Technik Next</li>
+        <li><b>Focus</b>AI, machine learning, data cleaning</li>
+        <li><b>Strength</b>Communication and leadership</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+<div class="page reveal" id="experience">
+  <h2>Experience</h2>
+  <div class="tl">
+    <div class="e"><span class="when">July to August 2026</span><h3>Machine Learning Intern</h3><span class="org">Technik Next</span>
+      <ul><li>Hands-on work in machine learning</li><li>Assignments on data cleaning and linear regression</li></ul></div>
+    <div class="e"><span class="when">June to July 2026</span><h3>General Director</h3><span class="org">Grow Pakistan</span>
+      <ul><li>Promoted after starting as Director of Communication</li><li>Led the team and its direction</li></ul></div>
+    <div class="e"><span class="when">May 2026</span><h3>Director of Communication</h3><span class="org">Grow Pakistan</span>
+      <ul><li>First role at the organization</li><li>Handled communication for the team</li></ul></div>
+  </div>
+</div>
+</section>
+
+<section class="page reveal" id="projects">
+  <h2>Projects</h2>
+  <p class="sub">Three ideas, each aimed at a real problem people face in Pakistan.</p>
+  <div class="grid3">
+    <div class="card">
+      <span class="tag">Most recent</span>
+      <h3>Smart Traffic System PK</h3>
+      <p class="row"><b>Problem:</b> Traffic rule violations go unnoticed and the system is slow to respond.</p>
+      <p class="row"><b>Idea:</b> Use AI on the existing camera network to detect every violation.</p>
+      <p class="row"><b>Why it matters:</b> A faster, more responsive traffic system without new hardware.</p>
+      <div class="chips"><span class="chip">AI</span><span class="chip">Computer vision</span><span class="chip">Public safety</span></div>
+    </div>
+    <div class="card">
+      <span class="tag">Entrepreneurship | A success</span>
+      <h3>Sports Ease Complex</h3>
+      <p class="row"><b>Problem:</b> Long queues and waiting to play your sport.</p>
+      <p class="row"><b>Idea:</b> Many sports under one roof, with an AI-powered app to pre-book slots.</p>
+      <p class="row"><b>Why it matters:</b> People save time and spend it playing.</p>
+      <div class="chips"><span class="chip">AI app</span><span class="chip">Booking</span><span class="chip">Business</span></div>
+    </div>
+    <div class="card">
+      <span class="tag">Healthcare</span>
+      <h3>AI Paramedic System</h3>
+      <p class="row"><b>Problem:</b> Emergency help is slow to reach many places.</p>
+      <p class="row"><b>Idea:</b> An AI system that provides immediate paramedic help across Pakistan.</p>
+      <p class="row"><b>Why it matters:</b> A faster response when every minute counts.</p>
+      <div class="chips"><span class="chip">AI</span><span class="chip">Healthcare</span><span class="chip">Emergency</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+<div class="page reveal skills" id="skills">
+  <h2>Skills</h2>
+  <p class="sub">What I use today, and what I am learning next.</p>
+  <div class="grid3">
+    <div class="card"><h3>Technical</h3><div class="chips"><span class="chip">Python <em>basic</em></span><span class="chip">C++ <em>basic</em></span><span class="chip">Data cleaning</span><span class="chip">Linear regression</span></div></div>
+    <div class="card"><h3>Learning now</h3><div class="chips"><span class="chip">Machine learning</span><span class="chip">Data science</span><span class="chip">AI applications</span></div></div>
+    <div class="card"><h3>People</h3><div class="chips"><span class="chip">Good communication</span><span class="chip">Leadership</span><span class="chip">Entrepreneurship</span></div></div>
+  </div>
+</div>
+</section>
+
+<section class="page reveal" id="education">
+  <h2>Education</h2>
+  <div class="grid3" style="margin-top:2rem">
+    <div class="card"><span class="tag">Currently pursuing</span><h3>BS Data Science</h3><p>Pak-Austria Fachhochschule Institute of Applied Sciences and Technology, 3rd semester</p></div>
+    <div class="card"><span class="tag">College</span><h3>Jinnah College for Women</h3><p>Peshawar</p></div>
+  </div>
+</section>
+
+<section class="contact reveal" id="contact">
+  <h2>Let’s work together</h2>
+  <p>Have an idea, an opportunity, or just want to say hi? I would love to hear from you.</p>
+  <a class="btn p" href="mailto:fatima24.khattak@gmail.com">Email me</a>
+  <a class="btn g" href="https://www.linkedin.com/in/fatima-khalid-294a422a7">LinkedIn</a>
+  <p>fatima24.khattak@gmail.com</p>
+</section>
+
+<footer>&copy; 2026 Fatimah Khalid</footer>
+<a id="up" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); }), { threshold: 0.1 });
+document.querySelectorAll(".reveal").forEach(s => io.observe(s));
+const up = document.getElementById("up");
+addEventListener("scroll", () => up.classList.toggle("on", scrollY > 600), { passive: true });
+
+const calm = matchMedia("(prefers-reduced-motion:reduce)").matches;
+const cv = document.getElementById("cloud"), ctx = cv.getContext("2d");
+const g = () => (Math.random() + Math.random() + Math.random() + Math.random() - 2) * 0.5;
+const groups = [[-.5, -.4, .3, "#e4dce8"], [.5, .3, -.3, "#c9a8e6"], [0, .55, .55, "#9a84a6"]];
+const pts = [];
+groups.forEach(c => { for (let i = 0; i < 110; i++) pts.push({ x: c[0] + g() * .55, y: c[1] + g() * .55, z: c[2] + g() * .55, c: c[3] }); });
+const corners = [[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]];
+const edges = [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]];
+let W = 0, H = 0, ang = 0.6, tilt = 0.35, tAng = 0, tTilt = 0;
+function size() {
+  const d = Math.min(devicePixelRatio || 1, 2), r = cv.getBoundingClientRect();
+  W = r.width; H = r.height; cv.width = W * d; cv.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
+}
+function proj(x, y, z) {
+  const ca = Math.cos(ang), sa = Math.sin(ang), ct = Math.cos(tilt), st = Math.sin(tilt);
+  const x1 = x * ca + z * sa, z1 = -x * sa + z * ca;
+  const y2 = y * ct - z1 * st, z2 = y * st + z1 * ct, f = 3 / (3 + z2);
+  return { x: W / 2 + x1 * f * W * .3, y: H / 2 + y2 * f * W * .3, z: z2, f: f };
+}
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  ctx.strokeStyle = "rgba(154,132,166,.35)"; ctx.lineWidth = 1;
+  edges.forEach(e => { const a = proj(...corners[e[0]]), b = proj(...corners[e[1]]); ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); });
+  const list = pts.map(p => ({ p: proj(p.x, p.y, p.z), c: p.c })).sort((a, b) => b.p.z - a.p.z);
+  const a = proj(-.95, -.7, -.5), b = proj(.95, .7, .5);
+  list.forEach(o => { ctx.globalAlpha = .35 + .65 * Math.min(1, o.p.f * .9); ctx.fillStyle = o.c; ctx.beginPath(); ctx.arc(o.p.x, o.p.y, 2.6 * o.p.f * (W / 400), 0, 6.283); ctx.fill(); });
+  ctx.globalAlpha = 1; ctx.strokeStyle = "#f3eef5"; ctx.setLineDash([6, 5]); ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); ctx.setLineDash([]);
+}
+function frame() {
+  ang += .004 + (tAng - ang) * 0 ; tilt += (0.35 + tTilt - tilt) * .06;
+  draw(); requestAnimationFrame(frame);
+}
+size(); addEventListener("resize", () => { size(); draw(); });
+if (calm) { draw(); } else {
+  const hero = document.querySelector(".hero");
+  hero.addEventListener("mousemove", e => { const r = hero.getBoundingClientRect(); tTilt = -((e.clientY - r.top) / r.height - .5) * .5; ang += ((e.clientX - r.left) / r.width - .5) * .004; });
+  hero.addEventListener("mouseleave", () => { tTilt = 0; });
+  frame();
+}
+
+if (matchMedia("(hover:hover) and (pointer:fine)").matches && !calm) {
+  document.querySelectorAll(".card").forEach(el => {
+    el.addEventListener("mousemove", e => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty("--ry", ((e.clientX - r.left) / r.width - .5) * 12 + "deg");
+      el.style.setProperty("--rx", -((e.clientY - r.top) / r.height - .5) * 12 + "deg");
+    });
+    el.addEventListener("mouseleave", () => { el.style.setProperty("--rx", "0deg"); el.style.setProperty("--ry", "0deg"); });
+  });
+}
+</script>
+</body>
+</html>
